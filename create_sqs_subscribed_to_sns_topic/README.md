@@ -1,0 +1,3 @@
+### This module will create a SQS queue and subscribe it to an SNS topic.
+
+The SNS topic needs to have permission to be able to deliver a message to an SQS queue.  The `aws_iam_policy_document` defines the permissions required to do so.  The `aws_sqs_queue_policy` attaches that JSON to the newly created queue.  The `aws_sqs_topic_subscription` subscribes the newly created queue to the given topic.  This relies on the fact that the topic already exists and we're simply referring to it by name (which is used with the `account_number` variable to build out an ARN).
